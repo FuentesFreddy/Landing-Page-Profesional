@@ -63,33 +63,61 @@ header {
     color: var(--accent-color); /* Interactividad visual */
 }
 
-/* 3. HERO SECTION (Impacto y Profesionalismo) */
+/* 3. HERO SECTION (Composición en 2 columnas: Texto Izquierda - Foto Derecha) */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), 
-                url('Imagenes/fondo.jpg') no-repeat center center/cover; /* Asegúrate de tener un fondo o quita el url */
+    min-height: 80vh;
+    background-color: var(--primary-color);
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
     color: var(--text-light);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    padding: 0 10%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem; /* Espacio entre el texto y la foto */
+}
+
+.hero-content {
+    flex: 1.2; /* El texto toma un poco más de espacio */
+    text-align: left;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
 }
 
-.subtitle {
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    margin-bottom: 2rem;
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 380px; 
+    height: 380px;
+    object-fit: cover;
+    border-radius: 50%; /* Foto circular */
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    transition: var(--transition);
+}
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--accent-color);
 }
 
 .btn-cta {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* <--- ESTA ES LA PARTE QUE MODIFICO */
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -101,6 +129,7 @@ header {
 .btn-cta:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background-color: #45a049; /* Un verde un poco más oscuro al pasar el mouse */
 }
 
 /* 4. SECCIONES Y CONTENEDORES */
@@ -198,7 +227,29 @@ footer {
     padding: 3rem;
 }
 
-/* 8. RESPONSIVE DESIGN (Obligatorio) */
+/* 8. RESPONSIVE DESIGN ACTUALIZADO */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo */
+        text-align: center;
+        padding: 4rem 5%;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-image img {
+        width: 280px;
+        height: 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -206,13 +257,11 @@ footer {
     
     .nav-links {
         margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .container {
-        padding: 3rem 5%;
+
+    .nav-links li a {
+        padding: 0.5rem 1rem;
     }
 }
