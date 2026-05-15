@@ -27,4 +27,4 @@ Landing page moderna y responsiva para promocionar CV Personal.
 ## 🐳 Imagen en Docker Hub
 - **URL de la imagen:** https://hub.docker.com/r/fjfuentes1/landing-prof
 - **Descargar imagen:** `docker pull fjfuentes1/landing-prof:latest`
-- **Ejecutar imagen pública:** `docker run -d -p 8080:80 fjfuentes1/espe-tech:latest`
+- **Ejecutar imagen pública:** `docker run -d -p 8080:80 fjfuentes1/landing-prof:latest`
