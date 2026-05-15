@@ -93,10 +93,11 @@ header {
     margin-bottom: 1rem;
 }
 
-.hero-image {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
+.hero-image img {
+    width: 100%; /* Que use el 100% del espacio disponible */
+    max-width: 380px; /* Pero que no crezca más de 380px */
+    height: auto; /* Mantener proporción */
+    /* ... lo demás (border, shadow) déjalo igual ... */
 }
 
 .hero-image img {
@@ -148,7 +149,7 @@ h2 {
 
 .profile-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Si no caben 300px, se pone una debajo de otra */
     gap: 3rem;
     align-items: start;
     margin-top: 2rem;
@@ -237,10 +238,9 @@ h2 {
 /* Actualización en SECCIÓN 5. TARJETAS Y GRID */
 
 .skills-grid {
-    display: flex; /* Cambiamos a Flexbox para mejor control de fila */
-    justify-content: space-between; /* Distribuye el espacio entre ellas */
-    align-items: stretch; /* Hace que todas tengan la misma altura */
-    gap: 1.5rem; /* Espacio entre tarjetas */
+    display: grid; /* Cambiamos flex por grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Magia: se acomodan solas */
+    gap: 1.5rem;
     width: 100%;
 }
 
@@ -336,41 +336,40 @@ footer {
     padding: 3rem;
 }
 
-/* 8. RESPONSIVE DESIGN ACTUALIZADO */
-@media (max-width: 992px) {
-    .hero-container {
-        flex-direction: column-reverse; /* Foto arriba, texto abajo */
-        text-align: center;
-        padding: 4rem 5%;
-        gap: 2rem;
-    }
-
-    .hero-content {
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-image img {
-        width: 280px;
-        height: 280px;
-    }
-}
-
+/* Para Tablets y Celulares */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: column; /* Logo arriba, links abajo */
+        gap: 1rem;
     }
-    
+
     .nav-links {
-        margin-top: 1rem;
-        flex-wrap: wrap;
+        padding: 0;
         justify-content: center;
     }
 
+    .hero-container {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo */
+        text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 280px; /* Imagen más pequeña en móvil */
+    }
+
+    .container {
+        padding: 3rem 5%; /* Menos espacio a los lados */
+    }
+}
+
+/* Para Celulares muy pequeños */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem; /* Título más pequeño para que no se corte */
+    }
+    
     .nav-links li a {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 }

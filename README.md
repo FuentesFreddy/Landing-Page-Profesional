@@ -1,11 +1,10 @@
 # ESPE TECH 104 - Landing Page
 
 ## Descripción
-Landing page moderna y responsiva para promocionar el evento "ESPE TECH 104: Innovación tecnológica al servicio de la seguridad y defensa del país".
+Landing page moderna y responsiva para promocionar CV Personal.
 
 ## Integrantes
-- Lennon Arias
-- Kenai Ramirez
+
 - Freddy Fuentes
 
 ## Tecnologías y Herramientas
